@@ -1,0 +1,15 @@
+services: # lista de servicos containers
+  # nginx: # nome do serviço/container
+  #   container_name: nginx # nome do container
+  #   image: nginx:latest # qual imagem sera utilizada, se for uma criada local, usar o nome dela
+  #   ports: # bind de porta -p 8080:80
+  #     - "8081:80"
+  #   # command: "hello world"
+  postgre:
+    image: postgres:12.17
+    ports:
+      - 5434:5432
+    environment:
+      - POSTGRES_DB=kubenews
+      - POSTGRES_USER=kubenews
+      - POSTGRES_PASSWORD=pg123
