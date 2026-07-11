@@ -13,3 +13,8 @@ services: # lista de servicos containers
       - POSTGRES_DB=kubenews
       - POSTGRES_USER=kubenews
       - POSTGRES_PASSWORD=pg123
+    volumes:
+      - postgre_docker_vol:/var/lib/postgresql/data
+
+volumes:
+  postgre_docker_vol:
