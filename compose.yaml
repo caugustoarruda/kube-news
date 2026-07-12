@@ -29,8 +29,9 @@ services: # lista de servicos containers
       - DB_USERNAME=kubenews
       - DB_PASSWORD=pg123
       - DB_HOST=postgre
+    depends_on:
+      - postgre
     
-
 volumes:
   postgre_docker_vol:
 
