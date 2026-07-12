@@ -19,7 +19,10 @@ services: # lista de servicos containers
       - kube_news_net
 
   kube_news:
-    image: caugustogarruda/kube-news:v1
+    image: caugustogarruda/kube-news
+    build:
+      context: ./src
+      dockerfile: Dockerfile
     ports:
       - 8080:8080
     networks:
