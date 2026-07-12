@@ -15,6 +15,25 @@ services: # lista de servicos containers
       - POSTGRES_PASSWORD=pg123
     volumes:
       - postgre_docker_vol:/var/lib/postgresql/data
+    networks:
+      - kube_news_net
+
+  kube_news:
+    image: caugustogarruda/kube-news:v1
+    ports:
+      - 8080:8080
+    networks:
+      - kube_news_net
+    environment:
+      - DB_DATABASE=kubenews
+      - DB_USERNAME=kubenews
+      - DB_PASSWORD=pg123
+      - DB_HOST=postgre
+    
 
 volumes:
   postgre_docker_vol:
+
+networks:
+  kube_news_net:
+    driver: bridge
